@@ -1,0 +1,12 @@
+requests==2.31.0
+python-dotenv==1.0.0
+sqlitedict==2.1.0
+google-generativeai>=0.8.0
+sentence-transformers>=2.2.2
+numpy>=1.24.0
+Flask>=3.0.0
+gunicorn>=21.2.0
+waitress>=2.1.2
+pytz>=2023.3
+# Development/test dependencies are managed in pyproject.toml under [project.optional-dependencies]
+# Use `pip install -e .[dev]` to install dev dependencies (pytest etc.)

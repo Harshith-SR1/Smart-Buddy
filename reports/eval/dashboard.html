@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Smart Buddy Evaluation Dashboard</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; background: #101820; color: #f2f2f2; }
+    .card { background: #1c2533; border-radius: 10px; padding: 20px; margin-bottom: 16px; box-shadow: 0 4px 20px rgba(0,0,0,.3); }
+    table { width: 100%; border-collapse: collapse; margin-top: 12px; }
+    th, td { padding: 10px; border-bottom: 1px solid rgba(255,255,255,.08); text-align: left; }
+    th { text-transform: uppercase; font-size: 12px; letter-spacing: .08em; color: #7dd3fc; }
+    .score { font-size: 42px; font-weight: 700; }
+    canvas { width: 100%; height: 120px; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div style="display:flex; justify-content:space-between; align-items:center;">
+      <div>
+        <div class="score">93.4%</div>
+        <div>Total Score: 57.0 / 61.0</div>
+      </div>
+      <div>
+        <div>Latency p95: 12.31 ms</div>
+        <div>Scenarios: 61</div>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <h3>Category Breakdown</h3>
+    <table>
+      <tr><th>Category</th><th>Pass</th><th>Pass Rate</th><th>Score</th></tr>
+      <tr><td>planner</td><td>17 / 18</td><td>94.4%</td><td>94.4%</td></tr><tr><td>rag</td><td>16 / 18</td><td>88.9%</td><td>88.9%</td></tr><tr><td>router</td><td>10 / 10</td><td>100.0%</td><td>100.0%</td></tr><tr><td>safety</td><td>11 / 12</td><td>91.7%</td><td>91.7%</td></tr><tr><td>tools</td><td>3 / 3</td><td>100.0%</td><td>100.0%</td></tr>
+    </table>
+  </div>
+  <div class="card">
+    <h3>Trend (last 7 runs)</h3>
+    <canvas id="historyChart"></canvas>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>const ctx = document.getElementById('historyChart').getContext('2d');new Chart(ctx, {type: 'line', data: {labels: ["12:21:04", "12:22:59", "12:23:26", "12:23:38", "12:24:06", "12:36:50", "12:37:09"], datasets: [{label: 'Pass %', data: [63.79, 94.83, 93.1, 91.38, 91.38, 93.44, 93.44], borderColor: '#38bdf8', fill: false}]}, options: {scales: {y: {beginAtZero: true, max: 100}}}});</script>
+</body>
+</html>

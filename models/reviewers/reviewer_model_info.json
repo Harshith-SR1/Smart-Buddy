@@ -1,0 +1,20 @@
+{
+  "description": "Reviewer model metadata and safe pointers. This file does NOT include model binaries — it lists recommended reviewer-friendly models and instructions to fetch them. Confirm licensing and disk size before downloading.",
+  "recommended": [
+    {
+      "name": "ggml-gpt4all-j-v1",
+      "source": "https://gpt4all.io/models/ggml-gpt4all-j-v1.bin",
+      "license": "Please confirm license before redistributing",
+      "approx_size": "~1.2GB",
+      "notes": "Example local-compatible model commonly used for testing. Verify checksum and license before use."
+    },
+    {
+      "name": "tiny-reviewer-stub",
+      "source": "local://placeholder",
+      "license": "MIT",
+      "approx_size": "<1KB",
+      "notes": "Small placeholder file included in this repo to ensure the folder is tracked. Not a real LLM."
+    }
+  ],
+  "instructions": "To install a reviewer model: pick a recommended entry, confirm licensing and size, then run the provided `download_reviewer_model.ps1` script with the model URL and expected checksum. Do NOT commit model binaries to this repo unless you have distribution rights."
+}

@@ -1,0 +1,58 @@
+# Azure Container Apps deployment configuration
+# Deploy with: az containerapp create --resource-group smart-buddy-rg --name smart-buddy --yaml azure-containerapp.yaml
+
+location: eastus
+identity:
+  type: SystemAssigned
+properties:
+  managedEnvironmentId: /subscriptions/SUBSCRIPTION_ID/resourceGroups/smart-buddy-rg/providers/Microsoft.App/managedEnvironments/smart-buddy-env
+  configuration:
+    ingress:
+      external: true
+      targetPort: 8000
+      transport: auto
+      traffic:
+      - weight: 100
+        latestRevision: true
+      allowInsecure: false
+    secrets:
+    - name: google-api-key
+      value: YOUR_GOOGLE_API_KEY
+    registries: []
+    activeRevisionsMode: Single
+  template:
+    containers:
+    - image: smartbuddy.azurecr.io/smart-buddy:latest
+      name: smart-buddy
+      env:
+      - name: GOOGLE_API_KEY
+        secretRef: google-api-key
+      - name: LOG_LEVEL
+        value: INFO
+      - name: ENVIRONMENT
+        value: production
+      resources:
+        cpu: 1.0
+        memory: 2Gi
+      probes:
+      - type: Liveness
+        httpGet:
+          path: /health
+          port: 8000
+        initialDelaySeconds: 10
+        periodSeconds: 30
+      - type: Startup
+        httpGet:
+          path: /health
+          port: 8000
+        initialDelaySeconds: 0
+        periodSeconds: 10
+        failureThreshold: 3
+    scale:
+      minReplicas: 1
+      maxReplicas: 10
+      rules:
+      - name: http-scaling
+        http:
+          metadata:
+            concurrentRequests: '50'

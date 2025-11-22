@@ -1,0 +1,128 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual Environment (ALL variations)
+.venv/
+venv/
+ENV/
+env/
+.virtualenv/
+.adk-env/
+.python-env/
+*-env/
+*.venv/
+
+# Environment Variables
+.env
+.env.local
+.env.*.local
+credentials.json
+service-account.json
+google-credentials.json
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+smart_buddy.db
+memory_bank.db
+
+# Logs
+*.log
+logs/
+*.jsonl
+
+# Model Files (CRITICAL - These are huge!)
+models/gpt4all/*.gguf
+models/reviewers/*.gguf
+*.bin
+*.pt
+*.pth
+*.onnx
+*.h5
+*.pkl
+*.joblib
+
+# Cache
+.cache/
+.pytest_cache/
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Coverage
+htmlcov/
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+
+# Testing
+.pytest_cache/
+test-results/
+
+# Documentation
+docs/_build/
+site/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*.ipynb_checkpoints/
+
+# Distribution / Packaging
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Temporary files
+*.tmp
+temp/
+tmp/
+
+# OS
+Thumbs.db
+Desktop.ini
+
+# Large files
+*.zip
+*.tar.gz
+*.rar
+*.7z
+
+# Data files
+data/*.csv
+data/*.parquet
+data/*.json
+data/*.txt

@@ -1,0 +1,45 @@
+# Production Dockerfile for Smart Buddy
+# Multi-stage build for smaller image size
+
+FROM python:3.11-slim as builder
+
+WORKDIR /app
+
+# Install build dependencies
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    gcc \
+    g++ \
+    && rm -rf /var/lib/apt/lists/*
+
+# Copy requirements and install Python packages
+COPY requirements.txt .
+RUN pip install --user --no-cache-dir -r requirements.txt
+
+# Production stage
+FROM python:3.11-slim
+
+WORKDIR /app
+
+# Copy installed packages from builder
+COPY --from=builder /root/.local /root/.local
+
+# Copy application code
+COPY smart_buddy/ ./smart_buddy/
+COPY smart_buddy_agent/ ./smart_buddy_agent/
+COPY server_flask.py .
+COPY wsgi.py .
+
+# Set environment variables
+ENV PYTHONUNBUFFERED=1
+ENV PATH=/root/.local/bin:$PATH
+ENV PORT=8000
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
+    CMD python -c "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')"
+
+# Expose port
+EXPOSE 8000
+
+# Run with gunicorn for production
+CMD ["python", "-m", "gunicorn", "wsgi:app", "--workers", "4", "--bind", "0.0.0.0:8000", "--timeout", "120", "--access-logfile", "-", "--error-logfile", "-"]

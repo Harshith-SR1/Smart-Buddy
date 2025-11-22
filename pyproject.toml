@@ -1,0 +1,47 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "smart-buddy"
+version = "0.1.0"
+description = "Smart Buddy — a multi-agent concierge with local-first LLM fallbacks and persistent memory"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [ { name = "Harshith S R" } ]
+dependencies = [
+  "fastapi==0.115.5",  # upgraded for Pydantic v2 compatibility
+  "uvicorn[standard]==0.22.0",
+  "requests==2.31.0",
+  "python-dotenv==1.0.0",
+  "SQLAlchemy==2.0.19",
+  "alembic==1.11.1",
+  "Flask>=3.0.0",
+  "pydantic==2.9.2",  # upgrade resolves ADK & google.genai Sentinel dependency
+  "google-generativeai==0.8.5",
+  "google-api-python-client==2.97.0",
+  "google-auth>=2.23.3,<3.0.0",
+  "google-auth-oauthlib==1.1.0",
+  "google-auth-httplib2==0.1.0",
+  "google-cloud-storage==2.12.0",
+  "google-cloud-firestore==2.11.0",
+  "google-cloud-secret-manager==2.14.0",
+  "openai==1.0.0",
+  "sqlitedict==2.1.0",
+  "google-adk",  # include ADK inside venv for consistent tooling
+  "sentence-transformers>=2.2.2",
+  "numpy>=1.24.0",
+  "mcp>=0.9.0",
+  "typing_extensions>=4.12.2"
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest==7.4.0",
+  "pytest-mock==3.10.0"
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+exclude = ["tests"]

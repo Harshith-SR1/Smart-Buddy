@@ -1,0 +1,31 @@
+{
+  "planner": {
+    "pass_rate": 94.44,
+    "score_pct": 94.44,
+    "passed": 17,
+    "total": 18
+  },
+  "rag": {
+    "pass_rate": 88.89,
+    "score_pct": 88.89,
+    "passed": 16,
+    "total": 18
+  },
+  "safety": {
+    "pass_rate": 91.67,
+    "score_pct": 91.67,
+    "passed": 11,
+    "total": 12
+  },
+  "tools": {
+    "pass_rate": 100.0,
+    "score_pct": 100.0,
+    "passed": 3,
+    "total": 3
+  },
+  "overall": {
+    "pass_rate": 93.44,
+    "score_pct": 93.44
+  },
+  "timestamp": 1763795229.311016
+}

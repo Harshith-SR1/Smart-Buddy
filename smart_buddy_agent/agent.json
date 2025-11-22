@@ -1,0 +1,7 @@
+{
+  "name": "smart_buddy_agent",
+  "version": "0.1.0",
+  "description": "Smart Buddy ADK-style wrapper around multi-agent system",
+  "entrypoint": "main.py:SmartBuddyAgent",
+  "model": "gemini-2.5-flash"
+}

@@ -1,0 +1,56 @@
+{
+  "timestamp": 1763795229.311016,
+  "scenario_count": 61,
+  "total_score": 57.0,
+  "max_score": 61.0,
+  "score_pct": 0.9344,
+  "passed": 57,
+  "pass_rate": 0.9344,
+  "latency_ms": {
+    "mean": 4.05,
+    "p95": 12.31,
+    "max": 37.97
+  },
+  "categories": {
+    "planner": {
+      "passed": 17,
+      "total": 18,
+      "score": 17.0,
+      "max_score": 18.0,
+      "pass_rate": 0.9444444444444444,
+      "score_pct": 0.9444444444444444
+    },
+    "rag": {
+      "passed": 16,
+      "total": 18,
+      "score": 16.0,
+      "max_score": 18.0,
+      "pass_rate": 0.8888888888888888,
+      "score_pct": 0.8888888888888888
+    },
+    "router": {
+      "passed": 10,
+      "total": 10,
+      "score": 10.0,
+      "max_score": 10.0,
+      "pass_rate": 1.0,
+      "score_pct": 1.0
+    },
+    "safety": {
+      "passed": 11,
+      "total": 12,
+      "score": 11.0,
+      "max_score": 12.0,
+      "pass_rate": 0.9166666666666666,
+      "score_pct": 0.9166666666666666
+    },
+    "tools": {
+      "passed": 3,
+      "total": 3,
+      "score": 3.0,
+      "max_score": 3.0,
+      "pass_rate": 1.0,
+      "score_pct": 1.0
+    }
+  }
+}
